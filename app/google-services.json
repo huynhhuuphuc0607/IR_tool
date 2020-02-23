@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "742784856517",
+    "firebase_url": "https://ir-tools-7efc2.firebaseio.com",
+    "project_id": "ir-tools-7efc2",
+    "storage_bucket": "ir-tools-7efc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742784856517:android:ce866cdfebdae3d331dbac",
+        "android_client_info": {
+          "package_name": "com.example.irtools"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "742784856517-pghjuaje2h6simd926h6dusv22lkmgvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlgGxnmfMCiC9Z1oPxOBrkNf04duUtcE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "742784856517-pghjuaje2h6simd926h6dusv22lkmgvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
