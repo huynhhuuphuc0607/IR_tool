@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             bookkeeppingJson = new JSONObject(loadJSONFromAsset(this));
         } catch (Exception e) {
-            Log.e("IRtools", e.toString());
+            Log.e("IRtool", e.toString());
         }
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                     findOneAndUpdateTask.addOnCompleteListener(new OnCompleteListener<List<Document>>() {
                         @Override
                         public void onComplete(@androidx.annotation.NonNull Task<List<Document>> task) {
-                            Log.d("IRtools", String.format("Successfully found document: %s",
+                            Log.d("IRtool", String.format("Successfully found document: %s",
                                     task.getResult()));
                             try {
                                 JSONObject reader = new JSONObject(task.getResult().get(0).toJson());
@@ -214,9 +214,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull final Task<StitchUser> task) {
                         if (task.isSuccessful()) {
-                            Log.d("IRtools", "logged in anonymously");
+                            Log.d("IRtool", "logged in anonymously");
                         } else {
-                            Log.e("IRtools", "failed to log in anonymously", task.getException());
+                            Log.e("IRtool", "failed to log in anonymously", task.getException());
                         }
                     }
                 });
