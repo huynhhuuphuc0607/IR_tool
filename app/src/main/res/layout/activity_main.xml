@@ -70,11 +70,63 @@
                 android:id="@+id/resultRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:visibility="gone"
                 android:layoutAnimation="@anim/fade_in_recyclerview" />
+            <FrameLayout
+                android:id="@+id/loadingFrameLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_gravity="center">
+
+                <com.example.irtools.CircularProgressBar
+                    android:id="@+id/loadingCircularProgressBar"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    app:progress="0"
+                    app:progressBarThickness="7dp"/>
+                <TextView
+                    android:id="@+id/loadingTextView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="Loading\n75%"/>
+
+                <TextView
+                    android:id="@+id/captionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:text="something"
+                    />
+
+            </FrameLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right|end"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="132dp"
+        android:clickable="true"
+        app:backgroundTint="@android:color/black"
+        app:borderWidth="0dp"
+        android:fitsSystemWindows="true"
+        app:elevation="8dp"
+        app:fabSize="normal"
+        android:src="@drawable/ic_action_search"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_change"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right|end"
@@ -86,5 +138,5 @@
         android:fitsSystemWindows="true"
         app:elevation="8dp"
         app:fabSize="normal"
-        android:src="@drawable/ic_action_search"/>
+        android:src="@drawable/ic_action_grid_on"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
