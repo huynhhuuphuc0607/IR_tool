@@ -56,18 +56,23 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ResultAdapter.ViewHolder holder, int position) {
         TextView positionTextView = holder.positionTextView;
-        TextView titleTextView = holder.titleTextView;
-        TextView subtitleTextView = holder.subtitleTextView;
+        TextView urlTextView = holder.urlTextView;
+        TextView docIdTextView = holder.docIdTextView;
         TextView tfidfTextView = holder.tfidfTextView;
+        TextView titleTextView = holder.titleTextView;
+        TextView snippetTextView = holder.snippetTextView;
         CardView lCardView = holder.lCardView;
         CardView gCardView = holder.gCardView;
 
         Result res = results.get(position);
         positionTextView.setText(position + "");
 
-        titleTextView.setText(res.getUrl());
-        subtitleTextView.setText("Doc id: " + res.getDocId());
+        titleTextView.setText(res.getTitle());
+        snippetTextView.setText(res.getDescription());
+        urlTextView.setText(res.getUrl());
+        docIdTextView.setText("Doc id: " + res.getDocId());
         tfidfTextView.setText(String.format("%.2f", res.getTf_idf()));
+
 
         if (linearNow) {
             Log.d("IRtool",res.getUrl() + "|" + positionTextView.getId() + "|" + tfidfTextView.getId());
@@ -96,18 +101,23 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView positionTextView;
-        public TextView titleTextView;
-        public TextView subtitleTextView;
+        public TextView urlTextView;
+        public TextView docIdTextView;
         public TextView tfidfTextView;
+        public TextView titleTextView;
+        public TextView snippetTextView;
         public CardView lCardView;
         public CardView gCardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             positionTextView = itemView.findViewById(R.id.positionTextView);
-            titleTextView = itemView.findViewById(R.id.titleTextView);
-            subtitleTextView = itemView.findViewById(R.id.subtitleTextView);
+            urlTextView = itemView.findViewById(R.id.urlTextView);
+            docIdTextView = itemView.findViewById(R.id.docIdTextView);
             tfidfTextView = itemView.findViewById(R.id.tfidfTextView);
+            titleTextView = itemView.findViewById(R.id.titleTextView);
+            snippetTextView = itemView.findViewById(R.id.snippetTextView);
+
             if (linearNow)
                 lCardView = itemView.findViewById(R.id.lCardView);
             else

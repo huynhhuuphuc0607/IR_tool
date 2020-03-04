@@ -5,12 +5,39 @@ public class Result {
     private String docId;
     private double tf;
     private double tf_idf;
+    private String title;
+    private String description;
 
+    public Result(String url, String title, String description, String docId, double tf, double tf_idf) {
+        this.url = url;
+        this.docId = docId;
+        this.tf = tf;
+        this.tf_idf = tf_idf;
+        this.title = title;
+        this.description = description;
+    }
     public Result(String url, String docId, double tf, double tf_idf) {
         this.url = url;
         this.docId = docId;
         this.tf = tf;
         this.tf_idf = tf_idf;
+        this.title = "";
+        this.description = "";
+    }
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUrl() {
