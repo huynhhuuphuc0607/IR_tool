@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements ResultAdapter.OnI
 
         resultRecyclerView.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.INVISIBLE);
-        Toast.makeText(this,"Greatttt! You found me!!!!!",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Greatttt! You found me!!!!!", Toast.LENGTH_LONG).show();
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int offset) {
@@ -225,6 +225,9 @@ public class MainActivity extends AppCompatActivity implements ResultAdapter.OnI
         resultRecyclerView.setLayoutManager(llm);
     }
 
+    //    Calculate the tf-idf of each term in the query
+//    params: list of strings each of which is a term in the user query
+//    return: a hasmap with the term (string) being the key and its tf-idf being the value
     private Map<String, Double> getWtq(List<String> words) {
         Iterator<String> iter = words.iterator();
         Map<String, Double> result = new HashMap<>();
@@ -240,6 +243,7 @@ public class MainActivity extends AppCompatActivity implements ResultAdapter.OnI
         return result;
     }
 
+    // change the layout from list to grid and vice versa
     public void swapRecyclerLayout() {
         appBarLayout.setExpanded(true);
         new Handler().postDelayed(new Runnable() {
@@ -266,6 +270,9 @@ public class MainActivity extends AppCompatActivity implements ResultAdapter.OnI
 
     }
 
+    //    load bookkeepping json file from asset
+//    params: context to load from asset
+//    return: json in string format
     public String loadJSONFromAsset(Context context) {
         String json = null;
         try {
@@ -282,7 +289,7 @@ public class MainActivity extends AppCompatActivity implements ResultAdapter.OnI
         return json;
     }
 
-    //find which result already contains doc_id. If found return index; otherwise, return -1
+
     public int checkDocIdForResult(String doc_id, ArrayList<Result> results) {
         for (int i = 0; i < results.size(); i++)
             if (results.get(i).getDocId().equals(doc_id))
@@ -290,6 +297,7 @@ public class MainActivity extends AppCompatActivity implements ResultAdapter.OnI
         return -1;
     }
 
+    // connect to the database
     public void establishConnectiontoDatabase() {
         stitchClient = Stitch.getDefaultAppClient();
         Stitch.getDefaultAppClient().getAuth().loginWithCredential(new AnonymousCredential())

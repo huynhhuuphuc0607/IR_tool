@@ -16,6 +16,7 @@ public class Result {
         this.title = title;
         this.description = description;
     }
+
     public Result(String url, String docId, double tf, double tf_idf) {
         this.url = url;
         this.docId = docId;
@@ -24,6 +25,7 @@ public class Result {
         this.title = "";
         this.description = "";
     }
+
     public String getTitle() {
         return title;
     }

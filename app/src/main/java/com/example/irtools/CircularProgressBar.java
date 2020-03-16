@@ -10,10 +10,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
-/**
- * Created by HuynhHuu on 21-Feb-18.
- */
-
 public class CircularProgressBar extends View {
     /**
      * ProgressBar's line thickness
@@ -32,6 +28,7 @@ public class CircularProgressBar extends View {
     private Paint foregroundPaint;
 
     private ProgressBarAnimation anim;
+
     public CircularProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
@@ -46,18 +43,16 @@ public class CircularProgressBar extends View {
         invalidate();
     }
 
-    public void setColor(int color)
-    {
+    public void setColor(int color) {
         this.color = color;
         foregroundPaint.setColor(color);
         backgroundPaint.setColor(adjustAlpha(color, 0.3f));
     }
 
-    public void animateProgress(TextView brightnessTextView, float from, float to,boolean animAllowed)
-    {
+    public void animateProgress(TextView brightnessTextView, float from, float to, boolean animAllowed) {
         //multiplying by 100 makes animation smoother
-        anim = new ProgressBarAnimation(this, brightnessTextView, from*100, to*100);
-        if(animAllowed)
+        anim = new ProgressBarAnimation(this, brightnessTextView, from * 100, to * 100);
+        if (animAllowed)
             anim.setDuration(250);
 
         this.startAnimation(anim);

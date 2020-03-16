@@ -14,13 +14,13 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder> {
-    public static final int KEY_1 = 1;
-    public static final int KEY_2 = 2;
+
     private Context c;
     private int linearResID;
     private int gridResID;
     private ArrayList<Result> results;
     private boolean linearNow;
+
     //declare interface
     private OnItemClicked onClick;
 
@@ -75,20 +75,20 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
 
 
         if (linearNow) {
-            Log.d("IRtool",res.getUrl() + "|" + positionTextView.getId() + "|" + tfidfTextView.getId());
-            lCardView.setTag(res.getUrl() + "|" + res.getTf_idf()+"|" + positionTextView.getId() + "|" + tfidfTextView.getId());
+            Log.d("IRtool", res.getUrl() + "|" + positionTextView.getId() + "|" + tfidfTextView.getId());
+            lCardView.setTag(res.getUrl() + "|" + res.getTf_idf() + "|" + positionTextView.getId() + "|" + tfidfTextView.getId());
             lCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onClick.onItemClick(v,position);
+                    onClick.onItemClick(v, position);
                 }
             });
         } else {
-            gCardView.setTag(res.getUrl() + "|" + res.getTf_idf()+"|" + positionTextView.getId() + "|" + tfidfTextView.getId());
+            gCardView.setTag(res.getUrl() + "|" + res.getTf_idf() + "|" + positionTextView.getId() + "|" + tfidfTextView.getId());
             gCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onClick.onItemClick(v,position);
+                    onClick.onItemClick(v, position);
                 }
             });
         }
@@ -124,14 +124,4 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
                 gCardView = itemView.findViewById(R.id.gCardView);
         }
     }
-
-    public void clear() {
-        this.results.clear();
-    }
-
-    public void switchLayout() {
-        this.linearNow = !linearNow;
-    }
-
-
 }

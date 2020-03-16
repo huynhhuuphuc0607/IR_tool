@@ -1,12 +1,8 @@
 package com.example.irtools;
+
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-
-/**
- * Created by HuynhHuu on 21-Feb-18.
- */
 
 public class ProgressBarAnimation extends Animation {
 
@@ -15,8 +11,7 @@ public class ProgressBarAnimation extends Animation {
     private CircularProgressBar mProgressBar;
     private TextView brightnessTextView;
 
-    public ProgressBarAnimation(CircularProgressBar progressBar, TextView brightnessTextView, float from, float to)
-    {
+    public ProgressBarAnimation(CircularProgressBar progressBar, TextView brightnessTextView, float from, float to) {
         super();
         this.from = from;
         this.to = to;
@@ -30,6 +25,6 @@ public class ProgressBarAnimation extends Animation {
         super.applyTransformation(interpolatedTime, t);
         float value = from + (to - from) * interpolatedTime;
         mProgressBar.setProgress((int) value);
-        brightnessTextView.setText("Loading\n" + (int)(value/100)+ "%" );
+        brightnessTextView.setText("Loading\n" + (int) (value / 100) + "%");
     }
 }

@@ -25,7 +25,8 @@ public class WebDisplayer extends AppCompatActivity {
         tfidfTextView = findViewById(R.id.tfidfTextView);
         webView = findViewById(R.id.webView);
 
-        tfidfTextView.setText(String.format("%.2f",getIntent().getDoubleExtra("value",0.0)));
+        tfidfTextView.setText(String.format("%.2f", getIntent().getDoubleExtra("value", 0.0)));
+
         //transparent status bar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow();
@@ -45,7 +46,6 @@ public class WebDisplayer extends AppCompatActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
-
                 return true;
             }
         });
